@@ -4,7 +4,10 @@
   <form #form="ngForm">
     <div class="form-group">
       <label for="Name">Name</label>
-      <input id="name" name="name" class="form-control" placeholder="Name" [(ngModel)]="userSettings.name">
+      <input id="name" name="name" class="form-control" placeholder="Name" [(ngModel)]="userSettings.name" required #nameField="ngModel" />
+      <p [hidden]="nameField.valid || nameField.untouched" class="alert alert-danger">
+        Enter a name
+      </p>
     </div>
 
     <div class="form-check form-group">

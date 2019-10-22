@@ -9,11 +9,11 @@ import { Component, OnInit } from '@angular/core';
 export class UserSettingsFormComponent {
 
   userSettings: UserSettings = {
-    name: 'Andre',
-    emailOffers: true,
-    interfaceStyle: 'dark',
-    subscriptionType: 'Annually',
-    notes: 'some notes...'
+    name: null,
+    emailOffers: null,
+    interfaceStyle: null,
+    subscriptionType: null,
+    notes: null
   }
 
 }
