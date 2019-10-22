@@ -1,11 +1,11 @@
 <div class="container">
   <h2>User Settings</h2>
 
-  <form #form="ngForm">
+  <form #form="ngForm" (ngSubmit)="onSubmit(form)">
     <div class="form-group">
       <label for="Name">Name</label>
-      <input id="name" name="name" class="form-control" placeholder="Name" [(ngModel)]="userSettings.name" required #nameField="ngModel" />
-      <p [hidden]="nameField.valid || nameField.untouched" class="alert alert-danger">
+      <input id="name" name="name" class="form-control" placeholder="Name" [(ngModel)]="userSettings.name" required #nameField="ngModel" [class.field-error]="form.submited && nameField.invalid"/>
+      <p [hidden]="!form.submitted || nameField.valid" class="alert alert-danger">
         Enter a name
       </p>
     </div>

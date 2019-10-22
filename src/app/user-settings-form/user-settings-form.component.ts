@@ -1,5 +1,6 @@
 import { UserSettings } from './../data/user-settings';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-user-settings-form',
@@ -14,6 +15,10 @@ export class UserSettingsFormComponent {
     interfaceStyle: null,
     subscriptionType: null,
     notes: null
+  }
+
+  public onSubmit(form: NgForm) {
+    console.log(form.valid);
   }
 
 }
