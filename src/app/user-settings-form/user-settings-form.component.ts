@@ -1,8 +1,10 @@
-import { DataService } from './../data/data.service';
-import { UserSettings } from './../data/user-settings';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Observable } from 'rxjs';
+
+import { DataService } from './../data/data.service';
+
+import { UserSettings } from './../data/user-settings';
 
 @Component({
   selector: 'app-user-settings-form',
