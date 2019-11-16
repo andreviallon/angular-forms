@@ -1,3 +1,4 @@
+import { DataService } from './../data/data.service';
 import { UserSettings } from './../data/user-settings';
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
@@ -17,8 +18,15 @@ export class UserSettingsFormComponent {
     notes: null
   }
 
+  constructor(private dataService: DataService) { }
+
   public onSubmit(form: NgForm) {
-    console.log(form.valid);
+    if (form.valid) {
+      this.dataService.postUserSettingsForm(this.userSettings).subscribe(
+        result => console.log('result', result),
+        error => console.log('error', error)
+      );
+    }
   }
 
 }
