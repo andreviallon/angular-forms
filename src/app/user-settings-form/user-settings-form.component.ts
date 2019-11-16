@@ -17,16 +17,27 @@ export class UserSettingsFormComponent {
     subscriptionType: null,
     notes: null
   }
+  postError: boolean = false;
+  postErrorMessage: string = '';
 
   constructor(private dataService: DataService) { }
 
   public onSubmit(form: NgForm) {
     if (form.valid) {
       this.dataService.postUserSettingsForm(this.userSettings).subscribe(
-        result => console.log('result', result),
-        error => console.log('error', error)
+        result => console.log('result: ', result),
+        error => this.onHttpError(error)
       );
+    } else {
+      this.postError = true;
+      this.postErrorMessage = 'Please fix the above errors';
     }
+  }
+
+  public onHttpError(error: any) {
+    console.log('error: ', error)
+    this.postError = true;
+    this.postErrorMessage = error.message;
   }
 
 }
